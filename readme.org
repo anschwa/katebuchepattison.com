@@ -1,0 +1,25 @@
+#+TITLE: katebuchepattison.com
+#+AUTHOR: Adam Schwartz
+#+DATE: September 20, 2021
+#+OPTIONS: ':true *:true toc:nil num:nil ^:nil
+
+* Using Tailwindcss
+During development, you can generate a complete (4MB) tailwindcss
+stylesheet with:
+#+begin_src text
+npm run build-dev
+#+end_src
+
+However, it would be nice to remove all of the unused styles before
+publishing the site to the world.
+#+begin_src text
+npm run build-prod
+#+end_src
+
+Now we will end up a stylesheet around 10Kb.
+
+* Generating blog
+We are using [[https://github.com/anschwa/gutenblog][gutenblog]] to generate this website:
+#+begin_src text
+ go run .
+#+end_src

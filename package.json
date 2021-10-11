@@ -1,0 +1,29 @@
+{
+  "name": "katebuchepattison.com",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-dev": "postcss css/styles.css -o www/styles.css",
+    "build-prod": "NODE_ENV=production postcss css/styles.css -o www/styles.css"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anschwa/katebuchepattison.com.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/anschwa/katebuchepattison.com/issues"
+  },
+  "homepage": "https://github.com/anschwa/katebuchepattison.com#readme",
+  "dependencies": {
+    "@tailwindcss/typography": "^0.4.1",
+    "autoprefixer": "^10.3.4",
+    "postcss-cli": "^8.3.1",
+    "postcss-nested": "^5.0.6",
+    "tailwindcss": "^2.2.15"
+  }
+}
