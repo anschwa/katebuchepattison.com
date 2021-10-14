@@ -9,12 +9,15 @@ module.exports = {
         DEFAULT: {
           css: {
             maxWidth: '72ch',
+            p: {
+              textAlign: 'justify',
+            },
             figure: {
               img: {
                 margin: '0 auto',
               },
               figcaption: {
-                'text-align': 'center',
+                textAlign: 'center',
               },
             },
           },

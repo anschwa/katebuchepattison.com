@@ -1,11 +1,9 @@
 #!/bin/bash
-
 set -euo pipefail
 
-# Process images for a blog post
-# (1) Strip EXIF data from all images
-# (2) Reduce image size
-# (3) Generate thumbnails
+# Process images and create thumbnails
+# WARNING: Before running this script you should strip EXIF data from
+# the images and make sure each photo is oriented correctly.
 
 usage="Usage: ./process-images.sh DIRECTORY"
 if [ "$#" -ne 1 ]
@@ -34,14 +32,10 @@ then
     exit 1
 fi
 
-# Strip all EXIF data from images in a directory
-# WARNING this will overwrite the original files
-exiftool -overwrite_original -all:all= -r "${imgDir}"
-
 # Reduce file size of all images
 # WARNING this will overwrite the original files
-mogrify -quality 75 "${imgDir}/*.jpg"
+mogrify -quality 50 "${imgDir}/*.jpg"
 
 # Crete thumbnails
 mkdir -p "${imgDir}/thumbs"
-mogrify -path "${imgDir}/thumbs" -thumbnail 400x -quality 50 "${imgDir}/*.jpg"
+mogrify -path "${imgDir}/thumbs" -thumbnail 400x -quality 100 "${imgDir}/*.jpg"
