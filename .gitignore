@@ -1,4 +1,4 @@
 node_modules/
-www/styles.css
+www/tailwind.css
 www/**/*.jpg
 www/**/*.png
