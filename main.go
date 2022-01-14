@@ -12,8 +12,8 @@ func main() {
 		"blog/rostock/layout.html.tmpl",
 		"blog/rostock/index.html.tmpl",
 		"blog/rostock/posts",
-		"www/blog/rostock",
-		"www",
+		"docs/blog/rostock",
+		"docs",
 	)
 
 	args := os.Args
