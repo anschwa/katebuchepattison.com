@@ -9,6 +9,9 @@ module.exports = {
         DEFAULT: {
           css: {
             maxWidth: '72ch',
+            p: {
+              '@apply break-words': '',
+            },
             figure: {
               img: {
                 margin: '0 auto',
