@@ -3,10 +3,10 @@
 <html lang="en">
   <head>
     <meta charset="utf-8"/>
-    <link rel="icon" href="{{.HomePrefix}}../../green-knitting-sm.png" />
-    <link rel="apple-touch-icon" href="{{.HomePrefix}}../../green-knitting-lg.png" />
-    <link rel="stylesheet" href="{{.HomePrefix}}../../tailwind.css" />
-    <link rel="stylesheet" media="print" href="{{.HomePrefix}}../print.css" />
+    <link rel="icon" href="/green-knitting-sm.png" />
+    <link rel="apple-touch-icon" href="/green-knitting-lg.png" />
+    <link rel="stylesheet" href="/tailwind.css" />
+    <link rel="stylesheet" media="print" href="/blog/print.css" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
@@ -25,7 +25,7 @@
   <body id="top" class="max-w-screen-xl p-4 md:px-8 mx-auto">
     <header id="masthead">
       <h1 class="text-2xl md:text-3xl font-medium">
-        <a class="hover:underline" href="{{.HomePrefix}}index.html">RosTALK: Guten-blog!</a>
+        <a class="hover:underline" href="/blog/rostock/index.html">RosTALK: Guten-blog!</a>
         <div class="py-2 text-base">
           I'm back in Germany again, for a year this time: let the adventures commence!
         </div>
@@ -35,7 +35,7 @@
       <img
         alt="The Rostock harbor in Mecklenburg-Vorpommern, Germany"
         title="The Rostock harbor in Mecklenburg-Vorpommern, Germany"
-        src="{{.HomePrefix}}rostock-harbor.jpg"
+        src="/blog/rostock/rostock-harbor.jpg"
         class="py-4 w-full"
       />
     </header>
@@ -53,9 +53,9 @@
           <li>
             {{if eq $.DocumentTitle $post.Title}}
             <a href="index.html">{{$post.Title}}</a>
-            {{else}}
-            <a href="{{$.HomePrefix}}{{$post.URL}}">{{$post.Title}}</a>,
-            {{end}}
+            {{- else -}}
+            <a href="/blog/rostock/{{$post.URL}}">{{$post.Title}}</a>,
+            {{- end}}
             <small>
               <time datetime="{{$post.Date.ISO}}">
                 {{$post.Date.Short}}<sup>{{$post.Date.Suffix}}</sup>
