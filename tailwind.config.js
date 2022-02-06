@@ -13,9 +13,7 @@ module.exports = {
               '@apply break-words': '',
             },
             figure: {
-              img: {
-                margin: '0 auto',
-              },
+              img: { margin: '0 auto' },
               figcaption: {
                 textAlign: 'center',
               },

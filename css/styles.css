@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 .blog-post {
-  @apply prose prose-blue prose-xl;
+  @apply prose prose-blue prose-lg;
 }

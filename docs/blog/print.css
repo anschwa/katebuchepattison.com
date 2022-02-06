@@ -15,3 +15,4 @@ figure {
   page-break-after: auto !important;
   page-break-inside: avoid !important;
 }
+figure img { margin: 0 auto; }
