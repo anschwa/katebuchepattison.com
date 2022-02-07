@@ -3,7 +3,7 @@ package main
 import (
 	"os"
 
-	"github.com/anschwa/gutenblog"
+	"katebuchepattison.com/gutenblog"
 )
 
 func main() {

@@ -1,0 +1,82 @@
+#+TITLE: Example Blog
+#+AUTHOR: Adam Schwartz
+#+DATE: September 30, 2021
+#+OPTIONS: ':true *:true toc:nil num:nil ^:nil
+
+* Creating a layout and index page
+The first thing you will need is a ~layout.html.tmpl~ file that will
+be the base template for all blog pages. The only two requirements for
+this file is to define the template as ~layout~ and include a section
+that will render the ~content~ template.
+
+For example:
+#+begin_src text
+{{define "layout" -}}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"/>
+    <title>Example Blog</title>
+  </head>
+  <body>
+    <header>
+      <h1>Hello, world!</h1>
+    </header>
+
+    <main role="main">
+      {{template "content"}}
+    </main>
+{{- end }}
+#+end_src
+
+* Adding blog posts
+Blog posts are also [[https://golang.org/pkg/html/template][html/template]] and they must be defined with the
+name ~content~. Additionally, the ~<h1>~ and ~<time>~ tags are
+required and will be used to set the document title and published date
+for the blog archive.
+
+#+begin_src text
+{{define "content"}}
+<article>
+  <h1>Post 1</h1>
+  <time datetime="2006-01-02">Monday, January 2, 2006</time>
+  ...
+</article>
+{{end}}
+#+end_src
+
+* Generating the blog
+All you need to do now is create an output directory, such as ~www/~
+and tell ~gutenblog~ where your templates are by calling ~gutenblog.New(...)~.
+
+Finally, we can generate the blog!
+#+begin_src text
+go run main.go build
+#+end_src
+
+Or alternatively run the development server:
+#+begin_src text
+go run main.go serve
+#+end_src
+
+* Directory Structure
+#+begin_src text
+.
+├── main.go
+├── readme.org
+├── templates
+│   ├── index.html.tmpl
+│   ├── layout.html.tmpl
+│   └── posts
+│       ├── post-1.html.tmpl
+│       ├── post-2.html.tmpl
+│       └── post-3.html.tmpl
+└── www
+    ├── index.html
+    ├── post-1
+    │   └── index.html
+    ├── post-2
+    │   └── index.html
+    └── post-3
+        └── index.html
+#+end_src
