@@ -134,7 +134,7 @@ func (b *Blog) Serve(port string) {
 		close(idleConns)
 	}()
 
-	log.Printf("Starting server on: %s", srv.Addr)
+	log.Printf("Starting server on: %s [%s]", srv.Addr, b.OutDir)
 	if err := srv.ListenAndServe(); err != http.ErrServerClosed {
 		log.Fatalf("Error starting server: %v", err)
 	}
