@@ -33837,6 +33837,10 @@ video {
   color: #2563eb;
 }
 
+.blog-post time {
+  font-style: italic;
+}
+
 @media (min-width: 640px) {
   .sm\:container {
     width: 100%;

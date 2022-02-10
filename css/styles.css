@@ -5,3 +5,7 @@
 .blog-post {
   @apply prose prose-blue prose-lg;
 }
+
+.blog-post time {
+  @apply italic;
+}
