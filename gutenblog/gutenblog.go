@@ -75,6 +75,10 @@ func (b *Blog) Generate() error {
 			return fmt.Errorf("error creating %s: %w", postDir, err)
 		}
 
+		if err := createDir(path.Join(postDir, "img")); err != nil {
+			return fmt.Errorf("error creating %s: %w", postDir, err)
+		}
+
 		// Generate HTML from templates and write to file
 		postPath := path.Join(postDir, "index.html")
 		w, err = os.Create(postPath)
