@@ -312,7 +312,7 @@ func makeArchive(posts []blogPost) blogArchive {
 		return months[i].Before(months[j])
 	})
 
-	// Now build the sorted archive
+	// Now build the sorted archive.
 	archive := make(blogArchive, 0, len(monthMap))
 	for _, m := range months {
 		items := monthMap[m]
