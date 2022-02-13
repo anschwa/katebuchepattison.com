@@ -9,19 +9,27 @@ import (
 
 func main() {
 	// Generate each blog in its appropriate place:
-	rostock := gutenblog.New(
-		"blog/rostock/layout.html.tmpl",
-		"blog/rostock/index.html.tmpl",
-		"blog/rostock/posts",
-		"docs/blog/rostock",
-		"docs",
-	)
-
 	ecuador := gutenblog.New(
 		"blog/ecuador/layout.html.tmpl",
 		"blog/ecuador/index.html.tmpl",
 		"blog/ecuador/posts",
 		"docs/blog/ecuador",
+		"docs",
+	)
+
+	berlin := gutenblog.New(
+		"blog/berlin/layout.html.tmpl",
+		"blog/berlin/index.html.tmpl",
+		"blog/berlin/posts",
+		"docs/blog/berlin",
+		"docs",
+	)
+
+	rostock := gutenblog.New(
+		"blog/rostock/layout.html.tmpl",
+		"blog/rostock/index.html.tmpl",
+		"blog/rostock/posts",
+		"docs/blog/rostock",
 		"docs",
 	)
 
@@ -32,16 +40,20 @@ func main() {
 
 	switch args[1] {
 	case "build":
-		if err := rostock.Generate(); err != nil {
+		if err := ecuador.Generate(); err != nil {
 			panic(err)
 		}
-		if err := ecuador.Generate(); err != nil {
+		if err := berlin.Generate(); err != nil {
+			panic(err)
+		}
+		if err := rostock.Generate(); err != nil {
 			panic(err)
 		}
 
 	case "serve":
-		go rostock.Serve("8080")
-		go ecuador.Serve("8081")
+		go ecuador.Serve("8080")
+		go berlin.Serve("8081")
+		go rostock.Serve("8082")
 
 		// Wait for ^C
 		sigint := make(chan os.Signal, 1)

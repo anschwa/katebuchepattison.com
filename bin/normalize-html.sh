@@ -36,8 +36,14 @@ fi
 # &#8211;   EN DASH
 # &quot;    DOUBLE QUOTE (")
 
-sed \
-    --regexp-extended \
-    --in-place \
-    "s/[\‘\’]/'/g; s/[\“\”]/\"/g; s/&#8216;|&#8217;/'/g; s/&#8220;|&#8221;|&quot;/\"/g; s/&#8230;/…/g; s/&#8211;/--/g" \
-    "${1}"
+sed --regexp-extended --in-place \
+    "${1}" -f <(cat << EOF
+s:[\‘\’]:':g
+s:[\“\”]:":g
+s:&#8216;|&#8217;:':g
+s:&#8220;|&#8221;|&quot;|&ldquo;|&rdquo;:":g
+s:&#8230;:…:g
+s:&#8211;:--:g
+s:—:--:g
+EOF
+)
