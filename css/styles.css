@@ -9,3 +9,7 @@
 .blog-post time {
   @apply italic;
 }
+
+.blog-post .subtitle {
+  @apply m-0 text-2xl;
+}

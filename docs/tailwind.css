@@ -2542,6 +2542,12 @@ video {
   font-style: italic;
 }
 
+.blog-post .subtitle {
+  margin: 0px;
+  font-size: 1.5rem;
+  line-height: 2rem;
+}
+
 @media (min-width: 640px) {
 }
 
