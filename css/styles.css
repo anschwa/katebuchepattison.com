@@ -13,3 +13,10 @@
 .blog-post .subtitle {
   @apply m-0 text-2xl;
 }
+
+.blog-post .heading-ref {
+  @apply invisible;
+}
+.blog-post .heading:hover .heading-ref {
+  @apply visible;
+}

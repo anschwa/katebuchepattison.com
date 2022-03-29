@@ -2548,6 +2548,14 @@ video {
   line-height: 2rem;
 }
 
+.blog-post .heading-ref {
+  visibility: hidden;
+}
+
+.blog-post .heading:hover .heading-ref {
+  visibility: visible;
+}
+
 @media (min-width: 640px) {
 }
 

@@ -83,6 +83,7 @@ func (b *Blog) Generate() error {
 		postPath := path.Join(postDir, "index.html")
 		w, err = os.Create(postPath)
 		if err != nil {
+			w.Close()
 			return fmt.Errorf("error creating %s: %w", postPath, err)
 		}
 
@@ -97,6 +98,8 @@ func (b *Blog) Generate() error {
 			w.Close()
 			return fmt.Errorf("error generating %s: %w", postPath, err)
 		}
+
+		w.Close()
 	}
 
 	return nil
@@ -114,6 +117,10 @@ func (b *Blog) Serve(port string) {
 			w.WriteHeader(http.StatusInternalServerError)
 			return
 		}
+
+		// No caching during development
+		w.Header().Set("Expires", time.Unix(0, 0).Format(time.RFC1123))
+		w.Header().Set("Cache-Control", "no-cache, private, max-age=0")
 
 		fs.ServeHTTP(w, r)
 	})
