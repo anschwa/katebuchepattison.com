@@ -2569,6 +2569,12 @@ video {
   visibility: visible;
 }
 
+.blog-post figure img,
+.blog-post figure video,
+.blog-post figure audio {
+  margin: 0 auto;
+}
+
 @media (min-width: 640px) {
 }
 

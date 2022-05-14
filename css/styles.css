@@ -20,3 +20,9 @@
 .blog-post .heading:hover .heading-ref {
   @apply visible;
 }
+
+.blog-post figure img,
+.blog-post figure video,
+.blog-post figure audio {
+  margin: 0 auto;
+}
