@@ -1,0 +1,34 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.blog-post {
+  @apply prose prose-blue prose-lg;
+}
+
+.blog-post time {
+  @apply italic;
+}
+
+.blog-post .subtitle {
+  @apply m-0 text-2xl;
+}
+
+.blog-post .heading-ref {
+  @apply invisible;
+}
+.blog-post .heading:hover .heading-ref {
+  @apply visible;
+}
+
+.blog-post figure {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.blog-post figure img,
+.blog-post figure video,
+.blog-post figure audio {
+  margin: 0 auto;
+}

@@ -1,0 +1,60 @@
+{{define "base" -}}
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <link rel="icon" href="/img/green-knitting-sm.png" />
+    <link rel="apple-touch-icon" href="/img/green-knitting-lg.png" />
+    <link rel="stylesheet" href="/css/tailwind.css" />
+    <link rel="stylesheet" media="print" href="/css/print.css" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Abenteuer means adventure in German…need I say more?"
+    />
+
+    <title>{{- if ne $.DocumentTitle "" -}} {{.DocumentTitle}} {{- else -}} Kate's Berlin Abenteuer{{- end -}}</title>
+  </head>
+
+  <body id="top" class="max-w-screen-xl p-4 md:px-8 mx-auto">
+    <header id="masthead">
+      <h1 class="text-2xl md:text-3xl font-medium">
+        <a class="hover:underline" href="/blog/berlin/index.html">Kate&rsquo;s Berlin Abenteuer</a>
+        <div class="py-2 text-base">
+          Abenteuer means adventure in German…need I say more?
+        </div>
+      </h1>
+      <hr/>
+
+      <img alt="Berlin" src="/img/berlin-mural.jpg" class="py-4" />
+    </header>
+
+    <div class="mt-4 flex flex-col md:flex-row md:justify-between">
+      <main role="main">
+        {{- template "content" . -}}
+      </main>
+
+      <nav id="archive" class="flex-none prose prose-sm py-4 md:px-8 md:py-0 md:w-96">
+        {{- range $month := .Archive}}
+        <h3>{{$month.Title}}</h3>
+        <ul>
+          {{- range $post := $month.Posts}}
+          <li>
+            <a href="{{$post.URL}}">{{$post.Title}}</a>,
+            <small>{{$post.Date.Short}}<sup>{{$post.Date.Suffix}}</sup></small>
+          </li>
+          {{- end}}
+        </ul>
+        {{- end}}
+      </nav>
+    </div>
+
+    <footer class="my-4">
+      <hr/>
+      <div class="py-4">
+        <a class="underline" href="#top">Back to top</a>
+      </div>
+    </footer>
+  </body>
+</html>
+{{- end}}

@@ -5,8 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "build-dev": "postcss css/styles.css -o docs/tailwind.css",
-    "build-prod": "NODE_ENV=production postcss css/styles.css -o docs/tailwind.css"
+    "build-dev": "postcss tailwind.css -o www/css/tailwind.css",
+    "build-prod": "NODE_ENV=production postcss tailwind.css -o www/css/tailwind.css"
   },
   "repository": {
     "type": "git",

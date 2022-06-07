@@ -14,9 +14,9 @@ help: ## Display this help section
 .PHONY: build
 build: ## Build website for production
 	npm run build-prod
-	go run . build
+	gutenblog -outDir=docs build .
 
 .PHONY: serve
 serve: ## Start development server with tailwindcss
 	npm run build-dev
-	go run . serve
+	gutenblog -outDir=docs serve .
