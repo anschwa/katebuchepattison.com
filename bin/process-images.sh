@@ -26,16 +26,22 @@ then
     exit 1
 fi
 
-if ! [ -x "$(command -v mogrify)" ]
+if ! [ -x "$(command -v gm)" ]
 then
-    echo "Error: mogrify is not available"
+    echo "Error: GraphicsMagick is not available"
+    exit 1
+fi
+if ! [ -x "$(command -v gm)" ]
+then
+    echo "Error: GraphicsMagick is not available"
     exit 1
 fi
 
 # Reduce file size of all images
 # WARNING this will overwrite the original files
-mogrify -quality 50 "${imgDir}/*.jpg"
+gm mogrify -quality 50 "${imgDir}/*.jpg"
 
-# Crete thumbnails
+# Create thumbnails
 mkdir -p "${imgDir}/thumbs"
-mogrify -path "${imgDir}/thumbs" -thumbnail 400x -quality 100 "${imgDir}/*.jpg"
+find "${imgDir}" -type f -name '*.jpg' -exec cp '{}' "${imgDir}/thumbs" \;
+gm mogrify -thumbnail 400x -quality 100 "${imgDir}/thumbs/*.jpg"
